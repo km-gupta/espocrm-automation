@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-05-01T22:55:53 IST" name="EspoCRM Suite" finished-at="2025-05-01T22:55:55 IST" duration-ms="2431">
+    <groups>
+    </groups>
+    <test started-at="2025-05-01T22:55:53 IST" name="Smoke Tests" finished-at="2025-05-01T22:55:55 IST" duration-ms="2431">
+      <class name="com.espocrm.tests.LoginSmokeTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.espocrm.tests.LoginSmokeTest@7530ad9c]" started-at="2025-05-01T22:55:51 IST" name="setup" finished-at="2025-05-01T22:55:53 IST" duration-ms="1538" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyPageTitle()[pri:0, instance:com.espocrm.tests.LoginSmokeTest@7530ad9c]" started-at="2025-05-01T22:55:53 IST" name="verifyPageTitle" finished-at="2025-05-01T22:55:55 IST" duration-ms="2378" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPageTitle -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.espocrm.tests.LoginSmokeTest@7530ad9c]" started-at="2025-05-01T22:55:55 IST" name="tearDown" finished-at="2025-05-01T22:55:55 IST" duration-ms="280" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.espocrm.tests.LoginSmokeTest -->
+    </test> <!-- Smoke Tests -->
+  </suite> <!-- EspoCRM Suite -->
+</testng-results>
