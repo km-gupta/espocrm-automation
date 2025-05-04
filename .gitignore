@@ -1,0 +1,14 @@
+# Ignore build output
+target/
+
+# Ignore test output
+test-output/
+
+# Ignore IDE settings
+.idea/
+*.iml
+
+# Ignore logs and OS files
+*.log
+.DS_Store
+Thumbs.db
