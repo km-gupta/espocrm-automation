@@ -1,30 +1,73 @@
 package com.espocrm.tests;
 
-import org.openqa.selenium.By;
+import static org.testng.Assert.assertTrue;
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.Status;
+import com.espocrm.config.ConfigReader;
+import com.espocrm.dataprovider.LoginDataProvider;
+import com.espocrm.pages.DashboardPage;
+import com.espocrm.pages.LoginPage;
+import com.espocrm.reports.ExtentTestManager;
 import com.esporcm.base.BaseTest;
 
 public class LoginSmokeTest extends BaseTest {
-	
-	@Test
-	public void verifyPageTitle() throws InterruptedException {
-		//Login
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//input[@name=\"username\"]")).sendKeys("admin");
-		driver.findElement(By.xpath("//input[@name=\"password\"]")).sendKeys("password");
-		
-		driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
+
+	@Test(dataProvider = "loginCredentials", dataProviderClass = LoginDataProvider.class)
+	public void testLogin(String username, String password, boolean expectedResult) throws InterruptedException {
 		
 		
-		Thread.sleep(1000);
-		String title = driver.findElement(By.xpath("//li[@data-name='Home']//span[2]")).getText();
-		System.out.println(title);
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.enterUsername(username);
+        ExtentTestManager.getTest().log(Status.INFO, "Entered username: " + username);
+
+        loginPage.enterPassword(password);
+        ExtentTestManager.getTest().log(Status.INFO, "Entered password: " + password);
+
+        loginPage.clickLogin();
+        ExtentTestManager.getTest().log(Status.INFO, "Clicked Login button");
 		
-		SoftAssert softAssert = new SoftAssert();
-		softAssert.assertNotEquals(title, "Home", "Login Done");
+		DashboardPage dashboardPage = new DashboardPage(driver);
+		boolean actualResult = dashboardPage.isDashboardVisible();
 		
-//		Assert.assertNotEquals(title, "Home", "Login Done");
+
+        ExtentTestManager.getTest().log(Status.INFO, "Login success? " + actualResult);
+		
+		Assert.assertEquals(actualResult, expectedResult, "Login result does not match expected outcome.");
 	}
+
+	/*
+	 * @Test(description = "Verify that user can login with valid credentials")
+	 * public void testValidLogin() throws InterruptedException { LoginPage
+	 * loginPage = new LoginPage(driver);
+	 * loginPage.login(ConfigReader.getUsername(), ConfigReader.getPassword());
+	 * 
+	 * DashboardPage dashboardPage = new DashboardPage(driver); boolean isLoggedIn =
+	 * dashboardPage.isDashboardVisible();
+	 * 
+	 * Assert.assertTrue(isLoggedIn, "Login failed or dashboard not visible."); }
+	 */
+
+	/*
+	 * @Test public void verifyPageTitle() {
+	 * 
+	 * boolean title = false;
+	 * 
+	 * LoginPage login = new LoginPage(driver); login.login("admin", "password"); //
+	 * Login
+	 * 
+	 * DashboardPage dashboard = new DashboardPage(driver); title =
+	 * dashboard.isDashboardVisible();
+	 * 
+	 * SoftAssert softAssert = new SoftAssert(); softAssert.assertEquals(title,
+	 * true);
+	 * 
+	 * Assert.assertTrue(title, "Login Failed");
+	 * 
+	 * // Assert.assertNotEquals(title, "Dashboard", "Login Done"); }
+	 */
+
 }
