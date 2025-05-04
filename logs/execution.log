@@ -183,3 +183,26 @@
 2025-05-04 18:25:03 [main] INFO  com.espocrm.listeners.WebEventLogger - Trying to click: <button> with text/value: 'Log in'
 2025-05-04 18:25:03 [main] INFO  com.espocrm.listeners.WebEventLogger - Clicked: <button> with text/value: 'Log in'
 2025-05-04 18:25:03 [main] ERROR com.espocrm.tests.LoginSmokeTest - Test failed. Screenshot saved at: C:\Users\kmgup\eclipse-workspace\espocrm-automation/test-output/screenshots/testLogin_20250504_182503.png
+2025-05-04 18:41:43 [main] INFO  com.espocrm.pages.LoginPage - Entering username: admin
+2025-05-04 18:41:44 [main] INFO  com.espocrm.listeners.WebEventLogger - Typing 'admin' into: <input> with text/value: ''
+2025-05-04 18:41:44 [main] INFO  com.espocrm.pages.LoginPage - Entering username: password
+2025-05-04 18:41:44 [main] INFO  com.espocrm.listeners.WebEventLogger - Typing 'password' into: <input> with text/value: ''
+2025-05-04 18:41:44 [main] INFO  com.espocrm.pages.LoginPage - Clicking login button
+2025-05-04 18:41:45 [main] INFO  com.espocrm.listeners.WebEventLogger - Trying to click: <button> with text/value: 'Log in'
+2025-05-04 18:41:45 [main] INFO  com.espocrm.listeners.WebEventLogger - Clicked: <button> with text/value: 'Log in'
+2025-05-04 18:41:48 [main] INFO  com.espocrm.pages.LoginPage - Entering username: admin
+2025-05-04 18:41:49 [main] INFO  com.espocrm.listeners.WebEventLogger - Typing 'admin' into: <input> with text/value: ''
+2025-05-04 18:41:49 [main] INFO  com.espocrm.pages.LoginPage - Entering username: wrongpass
+2025-05-04 18:41:49 [main] INFO  com.espocrm.listeners.WebEventLogger - Typing 'wrongpass' into: <input> with text/value: ''
+2025-05-04 18:41:49 [main] INFO  com.espocrm.pages.LoginPage - Clicking login button
+2025-05-04 18:41:49 [main] INFO  com.espocrm.listeners.WebEventLogger - Trying to click: <button> with text/value: 'Log in'
+2025-05-04 18:41:49 [main] INFO  com.espocrm.listeners.WebEventLogger - Clicked: <button> with text/value: 'Log in'
+2025-05-04 18:41:50 [main] ERROR com.espocrm.tests.LoginSmokeTest - Test failed. Screenshot saved at: C:\Users\kmgup\eclipse-workspace\espocrm-automation/test-output/screenshots/testLogin_20250504_184150.png
+2025-05-04 18:41:53 [main] INFO  com.espocrm.pages.LoginPage - Entering username: wronguser
+2025-05-04 18:41:54 [main] INFO  com.espocrm.listeners.WebEventLogger - Typing 'wronguser' into: <input> with text/value: ''
+2025-05-04 18:41:54 [main] INFO  com.espocrm.pages.LoginPage - Entering username: admin123
+2025-05-04 18:41:54 [main] INFO  com.espocrm.listeners.WebEventLogger - Typing 'admin123' into: <input> with text/value: ''
+2025-05-04 18:41:54 [main] INFO  com.espocrm.pages.LoginPage - Clicking login button
+2025-05-04 18:41:55 [main] INFO  com.espocrm.listeners.WebEventLogger - Trying to click: <button> with text/value: 'Log in'
+2025-05-04 18:41:55 [main] INFO  com.espocrm.listeners.WebEventLogger - Clicked: <button> with text/value: 'Log in'
+2025-05-04 18:41:55 [main] ERROR com.espocrm.tests.LoginSmokeTest - Test failed. Screenshot saved at: C:\Users\kmgup\eclipse-workspace\espocrm-automation/test-output/screenshots/testLogin_20250504_184155.png

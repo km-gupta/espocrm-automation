@@ -4,6 +4,13 @@ target/
 # Ignore test output
 test-output/
 
+# Ignore logs
+logs/
+*.log
+
+# Ignore TestNG and ExtentReports outputs
+test-output/
+
 # Ignore IDE settings
 .idea/
 *.iml
