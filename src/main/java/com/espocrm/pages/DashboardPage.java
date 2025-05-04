@@ -22,7 +22,7 @@ public class DashboardPage {
     public boolean isDashboardVisible() throws InterruptedException {
     	
         WaitUtils.waitForVisibility(driver, dashboardTitle, 10);
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
 //        System.out.println(dashboardPage.isDisplayed());
         if(dashboardTitle.isDisplayed()) {
         	return true;

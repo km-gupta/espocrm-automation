@@ -1,36 +1,46 @@
 package com.espocrm.factory;
 
-import com.espocrm.config.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringDecorator;
+
+import com.espocrm.config.ConfigReader;
+import com.espocrm.listeners.WebEventLogger;
 
 public class DriverFactory {
 
-    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static WebDriver initDriver() {
         String browser = ConfigReader.getBrowser().toLowerCase();
 
+        WebDriver rawDriver;
+
         switch (browser) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
-                driver.set(new ChromeDriver());
+                rawDriver = new ChromeDriver();
                 break;
+
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
-                driver.set(new FirefoxDriver());
+                rawDriver = new FirefoxDriver();
                 break;
+
             case "edge":
-                WebDriverManager.firefoxdriver().setup();
-                driver.set(new FirefoxDriver());
+                WebDriverManager.edgedriver().setup();
+                rawDriver = new EdgeDriver();
                 break;
+
             default:
-                throw new RuntimeException("Unsupported browser: " + browser);
+                throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
 
-        getDriver().manage().window().maximize();
+        WebDriver decoratedDriver = new EventFiringDecorator<>(new WebEventLogger()).decorate(rawDriver);
+        driver.set(decoratedDriver);
         return getDriver();
     }
 
@@ -39,10 +49,9 @@ public class DriverFactory {
     }
 
     public static void quitDriver() {
-        if (getDriver() != null) {
-            getDriver().quit();
+        if (driver.get() != null) {
+            driver.get().quit();
             driver.remove();
         }
     }
 }
-

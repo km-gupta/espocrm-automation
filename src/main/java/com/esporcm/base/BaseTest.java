@@ -21,6 +21,7 @@ public class BaseTest {
     @BeforeMethod
     public void setUp() {
         driver = DriverFactory.initDriver();
+        driver.manage().window().maximize();
         driver.get(ConfigReader.getAppUrl());
     }
 

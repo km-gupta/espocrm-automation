@@ -6,21 +6,35 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.Status;
 import com.espocrm.config.ConfigReader;
 import com.espocrm.dataprovider.LoginDataProvider;
 import com.espocrm.pages.DashboardPage;
 import com.espocrm.pages.LoginPage;
+import com.espocrm.reports.ExtentTestManager;
 import com.esporcm.base.BaseTest;
 
 public class LoginSmokeTest extends BaseTest {
 
 	@Test(dataProvider = "loginCredentials", dataProviderClass = LoginDataProvider.class)
 	public void testLogin(String username, String password, boolean expectedResult) throws InterruptedException {
-		LoginPage loginPage = new LoginPage(driver);
-		loginPage.login(username, password);
+		
+		
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.enterUsername(username);
+        ExtentTestManager.getTest().log(Status.INFO, "Entered username: " + username);
+
+        loginPage.enterPassword(password);
+        ExtentTestManager.getTest().log(Status.INFO, "Entered password: " + password);
+
+        loginPage.clickLogin();
+        ExtentTestManager.getTest().log(Status.INFO, "Clicked Login button");
 		
 		DashboardPage dashboardPage = new DashboardPage(driver);
 		boolean actualResult = dashboardPage.isDashboardVisible();
+		
+
+        ExtentTestManager.getTest().log(Status.INFO, "Login success? " + actualResult);
 		
 		Assert.assertEquals(actualResult, expectedResult, "Login result does not match expected outcome.");
 	}
