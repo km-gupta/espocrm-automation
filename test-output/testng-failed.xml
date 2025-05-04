@@ -5,9 +5,9 @@
     <classes>
       <class name="com.espocrm.tests.LoginSmokeTest">
         <methods>
-          <include name="verifyPageTitle"/>
           <include name="tearDown"/>
-          <include name="setup"/>
+          <include name="testLogin" invocation-numbers="1 2"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- com.espocrm.tests.LoginSmokeTest -->
     </classes>
