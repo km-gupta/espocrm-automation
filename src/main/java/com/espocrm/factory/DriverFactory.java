@@ -39,7 +39,8 @@ public class DriverFactory {
                 throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
 
-        WebDriver decoratedDriver = new EventFiringDecorator<>(new WebEventLogger()).decorate(rawDriver);
+        WebDriver decoratedDriver = new EventFiringDecorator<>().decorate(rawDriver);
+//        WebDriver decoratedDriver = new EventFiringDecorator<>(new WebEventLogger()).decorate(rawDriver);
         driver.set(decoratedDriver);
         return getDriver();
     }

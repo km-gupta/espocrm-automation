@@ -11,8 +11,8 @@ import com.espocrm.utils.WaitUtils;
 
 public class LoginPage {
 
-	WebDriver driver;
-	private static final Logger log = LoggerUtil.getLogger(LoginPage.class);
+	private WebDriver driver;
+//	private static final Logger log = LoggerUtil.getLogger(LoginPage.class);
 
 	@FindBy(xpath = "//input[@name=\"username\"]")
 	private WebElement usernameField;
@@ -29,21 +29,21 @@ public class LoginPage {
 	}
 
 	public void enterUsername(String username) {
-		log.info("Entering username: " + username);
+//		log.info("Entering username: " + username);
 		WaitUtils.waitForVisibility(driver, usernameField);
 		usernameField.sendKeys(username);
 		
 	}
 	
 	public void enterPassword(String password) {
-		log.info("Entering username: " + password);
+//		log.info("Entering username: " + password);
 		WaitUtils.waitForVisibility(driver, passwordField);
 		passwordField.sendKeys(password);
 		
 	}
 
 	public void clickLogin() {
-        log.info("Clicking login button");
+//        log.info("Clicking login button");
 		WaitUtils.waitForVisibility(driver, loginButton);
 		loginButton.click();
 		

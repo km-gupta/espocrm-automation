@@ -11,12 +11,20 @@ import org.testng.annotations.BeforeSuite;
 
 import com.espocrm.config.ConfigReader;
 import com.espocrm.factory.DriverFactory;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.espocrm.pages.DashboardPage;
+import com.espocrm.pages.LoginPage;
 
 public class BaseTest {
 
     protected WebDriver driver;
+    protected LoginPage loginPage;
+    protected DashboardPage dashboardPage;
+    
+    @BeforeMethod
+    public void initializePages() {
+    	loginPage = new LoginPage(driver);
+    	dashboardPage = new DashboardPage(driver);
+    }
 
     @BeforeMethod
     public void setUp() {
