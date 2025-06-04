@@ -64,3 +64,10 @@ This command will compile the test cases and run them as defined in the `smoke-t
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
+
+
+---
+
+
+[1]: https://github.com/espocrm/espocrm?utm_source=chatgpt.com "EspoCRM – Open Source CRM Application - GitHub"
+[2]: https://github.com/espocrm/documentation/blob/master/docs/administration/server-configuration.md?utm_source=chatgpt.com "Server Configuration for EspoCRM - GitHub"
